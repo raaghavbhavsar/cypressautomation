@@ -14,6 +14,17 @@ cy.get('.wgl-infobox').click({multiple: true})
 cy.get('.wgl-infobox_content').invoke('text').then((text)=>{
     const divTxt = text
     expect(divTxt).to.contain('two decades')
+ 
+//Verify Our team - one member
+cy.get('#slick-slide09').click()
+cy.get(':nth-child(4) > span')
+.should('be.visible')
+.invoke('text')
+.then((text) =>
+{
+    const divTxt = text
+    expect(divTxt).to.contain('Senior Associate at Drip Capital')
+})
 })
 
 })
